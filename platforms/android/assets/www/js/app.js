@@ -139,7 +139,7 @@ $stateProvider
             templateUrl: 'templates/graph.html'
     });
 
-  $urlRouterProvider.otherwise('/map');
+  $urlRouterProvider.otherwise('/firstpage');
   // if none of the above states are matched, use this as the fallback
  // $urlRouterProvider.otherwise('/tab/dash');
 

@@ -60,15 +60,17 @@
           infowindowContent.children['place-name'].textContent = place.name;
           infowindowContent.children['place-address'].textContent = address;
           infowindow.open(map, marker);
-          marker.addListener('click', function() {
-          map.setZoom(8);
-          map.setCenter(marker.getPosition());
-        });
+          
         });
 
         // Sets a listener on a radio button to change the filter type on Places
         // Autocomplete.
-       
+       /* function setupClickListener(id, types) {
+          var radioButton = document.getElementById(id);
+          radioButton.addEventListener('click', function() {
+            autocomplete.setTypes(types);
+          });
+        }*/
 
         setupClickListener('changetype-all', []);
         setupClickListener('changetype-address', ['address']);
