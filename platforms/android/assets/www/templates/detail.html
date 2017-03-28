@@ -1,0 +1,38 @@
+<ion-view title="" ng-init="cflag='false'">
+  <ion-content class="padding" id="login">
+    
+    <div class="list card">
+
+  <div class="item">
+    <div class="cot-logo">
+    <img src="img/cot.png" class="title-ck"/>
+    </div>
+  </div>
+<div class="list">
+  <h6 class="title"><span class="ion-android-checkmark-circle custom-icon"></span>Invoice-Load number: {{inv}}</h6>
+<div class="item item-input-inset">
+    <label class="item-input-wrapper"><span class="ion-social-usd-outline"></span>
+      <input type="number" placeholder="{{type}}" ng-model="amt">
+    </label> 
+    <button class="button button-small" ng-if="cflag=='false'" ng-click ="takePicture()" >
+      <span class="ion-camera"></span>
+    </button><button class = "button" ng-if="cflag=='true'" ng-click = "uploadPicture(type,amt,inv)"><span class="ion-android-upload custom-icon"></span></button>
+  </div>
+ <!--<button class = "button" ng-click = "takePicture()">Take Picture</button>
+<button class = "button" ng-click = "getPicture()">Open Gallery</button>
+<img ng-src = "{{picture}}">-->
+
+<!--<button class = "button" ng-click = "uploadPicture()">upload</button>-->
+  
+</div>
+ 
+
+  <div class="coyote-img">
+  <img class="full-image" src="img/co.png" style="   width: 245px;
+    padding-left: 84px;
+    height: 121px;"/>
+</div>
+</div>
+
+  </ion-content>
+</ion-view>

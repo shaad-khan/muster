@@ -1,0 +1,113 @@
+<ion-view title="" ng-init="fhide='false'" ng-init="thide='false'">
+  <ion-content class="padding" id="login">
+    
+    <div class="list card">
+
+  <div class="item">
+    <div class="cot-logo">
+    <img src="img/cot.png" class="title-ck"/>
+    </div>
+  </div>
+<div class="list">
+ <!-- <label class="item item-input item-stacked-label">
+    <span class="input-label">	
+Invoice number</span><span class="ion-compose"></span>
+ <input type="text" placeholder="" ng-model="inv" style="background-color: #ccc; width:320px;">
+  </label>
+   
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Inv Date</span><span class="ion-calendar"></span>
+    <input type="date" placeholder=""  ng-model="invdate" style="background-color: #ccc; width:320px;">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Load</span><span class="ion-ios-cloud-upload"></span>
+    <input type="number" placeholder=""  ng-model="invload" style="background-color: #ccc; width:320px;">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">PU / Del</span><span class="ion-ios-cloud-upload"></span>
+    <input type="text" placeholder=""  ng-model="invpu" style="background-color: #ccc; width:320px;">
+  </label>
+ <label class="item item-input item-stacked-label">
+   <button class="button button-balanced" ng-click="post_data(inv,invdate,invload,invpu)" style="background-color:#61f505;width:100px">
+ submit
+</button>
+<ion-spinner icon="lines" ng-if="fhide=='true'" style="color:#61f505;left: 502px;"></ion-spinner>
+
+ <span class="ion-checkmark-circled" style="color:#61f505;" ng-if="thide=='true'"></span>
+  </label>-->
+  
+  <ion-list ng-repeat="item in items">
+      <a class="item item-icon-left item-icon-right" href="" ng-click="read(item.Id)" ng-if="item.vflag==1" >
+    <i class="icon ion-chatbubble-working"></i>
+    {{item.message}}
+    <i class="icon ion-checkmark-circled"></i>
+  </a>
+   <a class="item item-icon-left item-icon-right" href="" ng-if="item.vflag==0" style="color:#61f505">
+    <i class="icon ion-chatbubble-working"></i>
+    {{item.message}}
+    <i class="icon ion-checkmark-circled"></i>
+  </a>
+   <!-- <a class="item item-icon-left" href="" >
+    <i class="icon ion-ios-pricetags-outline"></i>
+     <button class="btn" ><i class="icon iion-checkmark-circled"></i> </button>
+  </a>
+
+ 
+ <!--
+  <ion-item href="#/detail"><i class="icon ion-email"></i>
+    Flat Rate / Linehaul
+  </ion-item>
+  <ion-item href="#/detail">
+    Fuel Surcharge
+  </ion-item>
+  <ion-item href="#/detail">
+   Lumper
+  </ion-item>
+  <ion-item href="#/detail">
+   Loading  / Unloading
+  </ion-item>
+  <ion-item href="#/detail">
+   Driver Assist
+  </ion-item>
+  <ion-item href="#/detail">
+   Detention
+  </ion-item>
+   <ion-item href="#/detail">
+   Layover
+  </ion-item>
+   <ion-item href="#/detail">
+   Pallet
+  </ion-item>
+   <ion-item href="#/detail">
+  Redelivery
+  </ion-item>
+  <ion-item href="#/detail">
+  TONU / EONU
+  </ion-item>
+</ion-list>-->
+ <!--<button class = "button" ng-click = "takePicture()">Take Picture</button>
+<button class = "button" ng-click = "getPicture()">Open Gallery</button>
+<img ng-src = "{{picture}}">
+
+<button class = "button" ng-click = "uploadPicture()">upload</button>-->
+  
+</div>
+ 
+
+  <div class="coyote-img">
+  <img class="full-image" src="img/co.png" style="   width: 245px;
+    padding-left: 84px;
+    height: 121px;"/>
+</div>
+</div>
+
+  </ion-content>
+  <div class="tabs tabs-striped" ng-controller="badge">
+  <a class="tab-item active full-width-tab" href="#/firstpage">
+    <i class="icon ion-home badge-container"><span class="badge badge-assertive"></span></i>
+  </a>
+    <a class="tab-item full-width-tab" href="#/notify">
+    <i class="icon icon ion-chatbubble badge-container" style="color: #61f505"><span class="badge badge-assertive">{{bcount}}</span></i>
+  </a>
+  </div>
+</ion-view>

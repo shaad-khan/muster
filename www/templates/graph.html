@@ -1,0 +1,155 @@
+<ion-view>
+<ion-content ><br><br>
+<div class="list">
+ <div class="list">
+   <div class="item item-input-inset">
+      <label class="item item-input-wrapper">		
+      <input type="date" placeholder="Placeholder 1" ng-model="dt" style="width:320px;background: url(img/date2.png) no-repeat right 11px center;background-size: 40px 30px;">
+      </label>
+      <button class="button button-small" style="background-color: #61f505;color:azure;" ng-click="dateload(dt)">Submit</button>
+   </div>
+<!--<div class="card">
+  <div class="item item-text-wrap">
+    <span class="input-label">Select Date</span>
+  </div>
+  <div class="item item-text-wrap">
+    <label class="item item-input item-stacked-label">
+   
+    <input type="date" placeholder="yyyy-MM-dd"  ng-model="dt" style="width:320px;background: url(img/date2.png) no-repeat right 11px center;background-size: 40px 30px;">
+  </label>
+  </div>
+  <div class="item item-text-wrap">
+    <button class="button button-small" style="background-color: #61f505;color:azure;" ng-click="dateload(dt)">
+      Submit
+    </button>
+  </div>
+</div>-->
+  <!--<div class="item item-input-inset">
+     <span class="input-label">select Date to run report</span><span class="ion-calendar"></span><br>
+       <label class="item item-input item-stacked-label">
+   
+    <input type="date" placeholder=""  ng-model="dt" style="width:320px;">
+  </label>
+    <button class="button button-small" ng-click="dateload(dt)">
+      Submit
+    </button>
+  </div>-->
+ <div class="card">
+   
+  <div class="item item-text-wrap">
+   <h4> Report For Date: {{date | date:'yyyy-MM-dd'}}  <span class="ion-android-calendar"></span></h4>
+  </div>
+</div>
+ <div class="card" ng-if="it[0].Vcount>0">
+   <a class="item item-icon-left" href="">
+    <i class="icon ion-ios-paper-outline"></i>
+   Total voucher Count
+    <span class="badge badge-assertive" style="background-color: #61f505"> {{it[0].Vcount}}</span>
+  </a>
+  
+</div>
+</div>
+
+<!--
+      <ion-scroll zooming="true" direction="xy" style="width: 390px; height: 200px">
+  <div class="item item-divider">
+    Sorry No data found for selected Date.
+  </div>
+  </div>-->
+   <ion-scroll zooming="true" direction="xy" style="width: 330px; height:50px">
+   <div class = "row" >
+   <div class = "col">Desc</div>
+   <div class = "col">Open</div>
+    <div class = "col">Receive</div>
+   <div class = "col">Process</div>
+   <div class = "col">Close</div>
+   <div class = "col">BacklogDays</div>
+</div><br><br>
+   </ion-scroll>
+<ion-scroll zooming="true" direction="xy" style="width: 340px; height: 300px">
+<div class="card" ng-repeat="item in it track by $index" ng-if="$index>0">
+  
+   
+  <div class = "row" ng-if="$index%2 == 0" style="background-color:darkgray">
+   <div class = "col">{{item.Description}}</div>
+   <div class = "col">{{item.Opening}}</div>
+    <div class = "col">{{item.Received}}</div>
+   <div class = "col">{{item.Processed}}</div>
+   <div class = "col">{{item.Closing}}</div>
+   <div class = "col"><a href="" ng-click = "openModal(item.Opening,item.Received,item.Processed,item.Closing,item.BacklogDays,item.Description)" style="text-decoration: none;">{{item.BacklogDays}}  <span class="ion-pie-graph"></span></a></div>
+</div>
+
+<div class = "row" ng-if="$index%2!=0" style="background-color:beige">
+   <div class = "col">{{item.Description}}</div>
+   <div class = "col">{{item.Opening}}</div>
+    <div class = "col">{{item.Received}}</div>
+   <div class = "col">{{item.Processed}}</div>
+   <div class = "col">{{item.Closing}}</div>
+   <div class = "col"><a href="" ng-click = "openModal(item.Opening,item.Received,item.Processed,item.Closing,item.BacklogDays,item.Description)" style="text-decoration: none;">{{item.BacklogDays}} <span class="ion-pie-graph"></span></a></div>
+   
+</div>
+
+
+  <!--<div class="item item-divider"><a href="" ng-click = "openModal(item.Opening,item.Received,item.Processed,item.Closing,item.BacklogDays)" style="text-decoration: none;"> <span class="ion-pie-graph">
+  {{item.Description}}    Date : {{date | date:'yyyy-MM-dd'}}  </span></div></a><i ng-class="isItemShown(item) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
+            {{ isGroupShown(item) ? 'Less' : 'More' }}
+  </div>
+  <div ng-click="toggleItem(item)" class="item-expand-footer">
+            
+          
+  <div class="item item-text-wrap">
+    
+    <a class="item item-icon-left" href="">
+    <i class="icon ion-ios-pie-outline"></i>
+    Opening
+    <span class="badge badge-assertive" style="background-color: #61f505">{{item.Opening}}</span>
+  </a>
+   <a class="item item-icon-left" href="">
+    <i class="icon ion-ios-pie-outline"></i>
+    Received
+    <span class="badge badge-assertive" style="background-color: #61f505">{{item.Received}}</span>
+  </a>
+   <a class="item item-icon-left" href="">
+    <i class="icon ion-ios-pie-outline"></i>
+    Processed
+    <span class="badge badge-assertive" style="background-color: #61f505">{{item.Processed}}</span>
+  </a>
+   <a class="item item-icon-left" href="">
+    <i class="icon ion-ios-pie-outline"></i>
+    Closing
+    <span class="badge badge-assertive" style="background-color: #61f505">{{item.Closing}}</span>
+  </a>
+ <a class="item item-icon-left" href="">
+    <i class="icon ion-ios-pie-outline"></i>
+    BacklogDays
+    <span class="badge badge-assertive" style="background-color: #61f505">{{item.BacklogDays}}</span>
+  </a>
+  </div>
+</div>-->
+
+</div>
+  </ion-scroll>
+   <!-- <div class="card" ng-controller="graph">
+
+       <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+		</canvas>
+    </div>
+     <div class="card" ng-controller="graph">
+       <canvas id="line" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+		</canvas>
+    </div>
+    <div class="card" ng-controller="donut">
+       <canvas id="doughnut" class="chart chart-doughnut"
+  chart-data="data" chart-labels="labels">
+</canvas> 
+    </div>-->
+</ion-content>
+ <div class="tabs tabs-striped" ng-controller="badge">
+  <a class="tab-item active full-width-tab" href="#/graph">
+    <i class="icon ion-home badge-container"><span class="badge badge-assertive"></span></i>
+  </a>
+    <a class="tab-item full-width-tab" href="#/notify2">
+    <i class="icon icon ion-chatbubble badge-container" style="color: #61f505"><span class="badge badge-assertive">{{bcount}}</span></i>
+  </a>
+  </div>
+  </ion-view>

@@ -1,0 +1,81 @@
+<ion-view title="" ng-init="fhide='false'">
+  <ion-content class="padding" id="login">
+    
+    <div class="list card">
+
+  <div class="item">
+    <div class="cot-logo">
+    <img src="img/cot.png" class="title-ck"/>
+    </div>
+  </div>
+
+  <div class="item item-body">
+   <div class="list list-inset" ng-if="res==null">
+ <!-- <label class="item item-input item-select">
+    <div class="input-label">
+      Trucking Company
+    </div>
+    <select ng-model="tcompany" >
+  <option ng-repeat="item in items" value="{{item.Company}}">{{item.Company}}</option>
+</select>
+  </label>-->
+  <label class="item item-input">
+    <input type="text" placeholder="Phone Number" ng-model="phonenum" ng-pattern="/^[0-9]+$/" >
+  </label>
+  <div class="login-button">
+
+<button class="button button-full button-coyote" ng-click="register_fun(tcompany,phonenum)">
+ Register
+</button>
+</div>
+</div>
+<!--<div class="list list-inset" ng-if="load && res[0].unique_id!=null">
+  <label class="item item-input">
+    <div class="input-label">
+     Registering Phone number
+    </div>
+<label class="item item-input">
+    <ion-spinner class="spinner-energized"></ion-spinner>
+  </label>
+  </div>-->
+<!--/*-*/-->
+ 
+<div class="list list-inset"  ng-if="fhide=='true' && res==null">
+  <label class="item item-input">
+    <div class="input-label">
+     Registering phone number 
+    
+    </div>
+     <div class="input-label" >
+     <label class="item item-input">
+   <ion-spinner icon="spiral" class="custom-icon"></ion-spinner>
+  </label>
+    </div>
+
+  </div>
+
+
+<!-- //////-->
+
+<div class="list list-inset" ng-if="fhide=='false' && res!=null">
+  <label class="item item-input">
+    <div class="input-label">
+     Registeration successful <span class="ion-checkmark-circled custom-icon"></span>
+    
+    </div>
+     <div class="input-label" >
+     <label class="item item-input">
+    <input type="text" placeholder="{{res[0].unique_id}}"  ng-pattern="/^[0-9]+$/" value="{{res[0].unique_id}}" disabled >
+  </label>
+    </div>
+
+  </div>
+  <div class="coyote-img">
+  <img class="full-image" src="img/co.png" style="   width: 245px;
+    padding-left: 84px;
+    height: 121px;"/>
+</div>
+</div>
+
+  </ion-content>
+</ion-view>

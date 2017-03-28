@@ -1,0 +1,81 @@
+<ion-view title="" ng-init="fhide='false'" ng-init="thide='false'">
+  <ion-content class="padding" id="login">
+    
+    <div class="list card">
+
+  <div class="item">
+    <div class="cot-logo">
+    <img src="img/cot.png" class="title-ck"/>
+    </div>
+  </div>
+<div class="list">
+   <label class="item item-input item-stacked-label">
+    <span class="input-label">Load Number</span><span class="ion-ios-cloud-upload"></span>
+    <input type="number" placeholder=""  ng-model="invload" style="background-color: #ccc; width:320px;">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">	
+Invoice number</span><span class="ion-compose"></span>
+ <input type="text" placeholder="" ng-model="inv" style="background-color: #ccc; width:320px;">
+  </label>
+   
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Inv Date</span><span class="ion-calendar"></span>
+    <input type="date" placeholder=""  ng-model="invdate" style="background-color: #ccc; width:320px;">
+  </label>
+ 
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">PU / Del</span><span class="ion-ios-cloud-upload"></span>
+    <input type="text" placeholder=""  ng-model="invpu" style="background-color: #ccc; width:320px;">
+  </label>
+ <label class="item item-input item-stacked-label">
+   <button class="button button-balanced" ng-click="post_data(invload,inv,invdate,invpu)" style="background-color:#61f505;width:100px">
+ submit
+</button>
+<ion-spinner icon="lines" ng-if="fhide=='true'" class="custom-icon" style="color:#61f505;left: 502px;"></ion-spinner>
+
+ <span class="ion-checkmark-circled" style="color:#61f505;" ng-if="thide=='true'"></span>
+  </label>
+ 
+  
+</div>
+ 
+
+  <div class="coyote-img">
+  <img class="full-image" src="img/co.png" style="   width: 245px;
+    padding-left: 84px;
+    height: 121px;"/>
+</div>
+</div>
+  
+  </ion-content>
+<div class="tabs tabs-striped" ng-controller="badge">
+  <a class="tab-item active full-width-tab" href="#/firstpage">
+    <i class="icon ion-home badge-container"><span class="badge badge-assertive"></span></i>
+  </a>
+    <a class="tab-item full-width-tab" href="#/notify">
+    <i class="icon icon ion-chatbubble badge-container shake-little shake-constant shake-constant--hover" style="color: #61f505" ng-if="bcount>0"><span class="badge badge-assertive">{{bcount}}</span></i>
+  <i class="icon icon ion-chatbubble badge-container" style="color: #61f505" ng-if="bcount==0"><span class="badge badge-assertive">{{bcount}}</span></i>
+
+  </a>
+  </div>
+  <!--<div class="tabs-striped tabs-left tabs-background-dark tabs-color-light">
+    <div class="tabs">
+     <a class="tab-item" href="#" >
+        <i class="icon ion-chatbubble" style="color: #61f505"></i><span class="badge badge-assertive">4</span>
+        Notifications
+      </a>
+     <!-- <a class="tab-item active" href="#">
+        <i class="icon ion-home"></i>
+        Test
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-star"></i>
+        Favorites
+      </a>
+      
+    </div>
+  </div>-->
+  
+  
+</ion-view>

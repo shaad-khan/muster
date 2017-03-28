@@ -1,0 +1,48 @@
+<ion-view title="">
+  <ion-content class="padding" id="login">
+    
+    <div class="list card">
+
+  <div class="item">
+    <div class="cot-logo">
+    <img src="img/cot.png" class="title-ck"/>
+    </div>
+  </div>
+
+  <div class="item item-body">
+   <div class="list list-inset">
+  <!-- <label class="item item-input item-select">
+   <div class="input-label">
+      Trucking Company
+    </div>
+    <select ng-model="company">
+  <option ng-repeat="item in items" value="{{item.Company}}">{{item.Company}}</option>
+</select>
+  </label>-->
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Unique ID
+    </div>
+    <select ng-model="uid">
+  <option ng-repeat="item in items" value="{{item.unique_id}}">{{item.unique_id}}</option>
+</select>
+  </label>
+</div>
+<div class="login-button">
+<button class="button button-full button-coyote" ng-click="login(company,uid)">
+   Login
+</button>
+<button class="button button-full button-coyote" ng-click="register()">
+ Register
+</button>
+</div>
+  </div>
+  <div class="coyote-img">
+  <img class="full-image" src="img/co.png" style="   width: 245px;
+    padding-left: 84px;
+    height: 121px;"/>
+</div>
+</div>
+
+  </ion-content>
+</ion-view>
